@@ -1,4 +1,5 @@
-#This script changes the Plasma Kickoff launcher icon to doom guy's face based on load average
+#This script changes the Plasma Kickoff launcher icon to doom guy's face based on load average. For the load average number I removed the decimal so 0.10=10, 0.60=60, 1.03=103 and so on. I am grabbing the load average from 'uptime' and taking the 5 min load average, this can be changed to the 1 min load average or the 15 min average by changing the delimited field displayed by cut on line 34. The values are set rather low to begin with mostly because I wanted to see the face change often :). They should be tweaked for your system. The polling interval is set to 10 seconds but can be changed on line 30.
+
 #Check if dir exists if not make it and make images
 if [ ! -d "$HOME" ]
 then
@@ -6,6 +7,7 @@ then
 #Create dir
 mkdir ~/doomguy
 
+#Move to doomguy dir
 cd ~/doomguy
 
 #Make doom guy image in doomguy folder in home dir from base64 encoded versions
@@ -22,7 +24,6 @@ echo "iVBORw0KGgoAAAANSUhEUgAAABoAAAAhCAYAAADH97ugAAADXUlEQVR42sWWK1RbQRCG4xAIRA
 fi
 
 #loop through and check load average then change image
-
 while true
 do
 
